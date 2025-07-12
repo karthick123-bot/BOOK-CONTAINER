@@ -34,11 +34,29 @@ body {
   padding: 20px;
   border-radius: 10px;
   width: 300px;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 .book-container h2 {
   color: #fd6569;
-  font-size: 22px;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.book-container h5 {
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.book-container p {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  white-space: normal;
 }
 
 .book-container button {
@@ -46,9 +64,9 @@ body {
   color: black;
   border: none;
   padding: 10px 20px;
-  margin-top: 10px;
   border-radius: 8px;
   cursor: pointer;
+  align-self: flex-start;
 }
 
 .add-button {
@@ -109,6 +127,7 @@ body {
 .popup-box textarea {
   border: 2px solid black;
   resize: vertical;
+  min-height: 80px;
 }
 
 .popup-box input:focus,
@@ -131,7 +150,7 @@ body {
   cursor: pointer;
 }
 
-/* Media Queries for Responsiveness */
+/* Responsive Design */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
