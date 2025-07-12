@@ -36,18 +36,27 @@ body {
   width: 300px;
   display: flex;
   flex-direction: column;
-  overflow-wrap: break-word;
   word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.book-container h2,
+.book-container h5,
+.book-container p {
+  overflow-wrap: break-word;
+  word-break: break-word;
   white-space: normal;
 }
 
 .book-container h2 {
   color: #fd6569;
-  font-size: 20px;
-  margin-bottom: 5px;
+  font-size: 22px;
+  margin-bottom: 8px;
 }
 
 .book-container h5 {
+  font-size: 16px;
   font-weight: 400;
   margin-bottom: 10px;
 }
@@ -56,7 +65,6 @@ body {
   font-size: 14px;
   line-height: 1.5;
   margin-bottom: 10px;
-  white-space: normal;
 }
 
 .book-container button {
@@ -64,6 +72,7 @@ body {
   color: black;
   border: none;
   padding: 10px 20px;
+  margin-top: auto;
   border-radius: 8px;
   cursor: pointer;
   align-self: flex-start;
@@ -127,7 +136,6 @@ body {
 .popup-box textarea {
   border: 2px solid black;
   resize: vertical;
-  min-height: 80px;
 }
 
 .popup-box input:focus,
@@ -158,7 +166,7 @@ body {
   }
 
   .book-container {
-    width: 80%;
+    width: 85%;
   }
 
   .add-button {
@@ -178,6 +186,19 @@ body {
   }
 
   .book-container {
-    width: 90%;
+    width: 95%;
+    padding: 15px;
+  }
+
+  .book-container h2 {
+    font-size: 18px;
+  }
+
+  .book-container h5 {
+    font-size: 14px;
+  }
+
+  .book-container p {
+    font-size: 13px;
   }
 }
