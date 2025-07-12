@@ -1,45 +1,46 @@
-var popupoverlay=document.querySelector(".popup-overlay")
-var popupbox=document.querySelector(".popup-box")
-var addpopupbutton=document.getElementById("add-popup-button")
+// Open popup
+document.getElementById("add-popup-button").addEventListener("click", () => {
+  document.getElementById("popup-overlay").style.display = "block";
+  document.getElementById("popup-box").style.display = "block";
+});
 
-addpopupbutton.addEventListener("click",function(){
-    popupoverlay.style.display="block"
-    popupbox.style.display="block"
-})
+// Close popup
+document.getElementById("cancel-popup").addEventListener("click", () => {
+  document.getElementById("popup-overlay").style.display = "none";
+  document.getElementById("popup-box").style.display = "none";
+  document.getElementById("book-form").reset();
+});
 
-var cancelpopup=document.getElementById("cancel-popup")
+// Handle form submission
+document.getElementById("book-form").addEventListener("submit", function (e) {
+  e.preventDefault(); // prevent page reload
 
-cancelpopup.addEventListener("click",function(event){
+  const title = document.getElementById("book-title-input").value.trim();
+  const author = document.getElementById("book-author-input").value.trim();
+  const desc = document.getElementById("short-description-input").value.trim();
 
-event.preventDefault()
-popupoverlay.style.display="none"
-popupbox.style.display="none"
+  if (title && author && desc) {
+    const bookCard = document.createElement("div");
+    bookCard.classList.add("book-container");
 
-})
+    bookCard.innerHTML = `
+      <h2>${title}</h2>
+      <h5>${author}</h5>
+      <p>${desc}</p>
+      <button class="delete-btn">Delete</button>
+    `;
 
-var container=document.querySelector(".container")
-var addbook=document.getElementById("add-book")
-var booktittleinput=document.getElementById("book-tittle-input")
-var bookauthorinput=document.getElementById("book-author-input")
-var shortdescriptioninput=document.getElementById("short-description-input")
+    document.getElementById("book-list").appendChild(bookCard);
 
-addbook.addEventListener("click",function(event){
-    event.preventDefault()
+    document.getElementById("popup-overlay").style.display = "none";
+    document.getElementById("popup-box").style.display = "none";
+    document.getElementById("book-form").reset();
+  }
+});
 
-    var div=document.createElement("div")
-    div.setAttribute("class","book-container")
-    div.innerHTML=`<h2>${booktittleinput.value}</h2>
-    <h5>${bookauthorinput.value}</h5>
-    <p>${shortdescriptioninput.value}</p>
-    <button onclick="deletebook(event)">Delete</button>`
-    container.append(div)
-    popupoverlay.style.display="none"
-    popupbox.style.display="none"
-
-
-})
-
-function deletebook(event){
-
-    event.target.parentElement.remove()
-}
+// Handle delete
+document.getElementById("book-list").addEventListener("click", function (e) {
+  if (e.target.classList.contains("delete-btn")) {
+    e.target.parentElement.remove();
+  }
+});
